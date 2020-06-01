@@ -12,7 +12,8 @@ var helmet = require('helmet')
 ;
 var app = express();
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://admin-alex:U7JpZIQWjCoXywWD@cluster0-7cyki.mongodb.net/local_library?retryWrites=true&w=majority'
+var dev_db_url = 'mongodb+srv://admin-alex:U7JpZIQWjCoXywWD@cluster0-7cyki.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
